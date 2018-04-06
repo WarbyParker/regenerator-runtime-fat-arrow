@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "jsx": "react",
+    "lib": ["es6", "dom"],
+    "module": "es2015",
+    "sourceMap": true,
+    "target": "es5"
+  }
+}
