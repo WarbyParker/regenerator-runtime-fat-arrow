@@ -17,7 +17,8 @@
     "webpack-cli": "^2.0.14"
   },
   "scripts": {
-    "build": "yarn webpack",
+    "build": "yarn build:dev && yarn build:prod",
+    "build:dev": "yarn webpack",
     "build:prod": "NODE_ENV=production yarn webpack"
   }
 }
