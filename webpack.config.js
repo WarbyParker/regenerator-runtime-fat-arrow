@@ -9,9 +9,9 @@ module.exports = {
       {
         test: [/\.js?$/],
         loader: "babel-loader",
-        exclude: /node_modules/,
+        // exclude: /node_modules/,
         options: {
-          babelRc: false,
+          babelrc: false,
           presets: [
             [
               "@babel/env",
