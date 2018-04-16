@@ -1,7 +1,7 @@
 module.exports = {
   entry: { main: ["./index.js"] },
   output: {
-    filename: process.env.NODE_ENV === "production" ? "prod.js" : "dev.js",
+    filename: process.env.NODE_ENV === "production" ? "prod.js" : "dev.js"
   },
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
   module: {
@@ -10,7 +10,20 @@ module.exports = {
         test: [/\.js?$/],
         loader: "babel-loader",
         exclude: /node_modules/,
-      },
-    ],
-  },
+        options: {
+          babelRc: false,
+          presets: [
+            [
+              "@babel/env",
+              {
+                targets: {
+                  browsers: ["ios_saf >= 9"]
+                }
+              }
+            ]
+          ]
+        }
+      }
+    ]
+  }
 };
