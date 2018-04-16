@@ -2,6 +2,8 @@ const fs = require("fs");
 const assert = require("assert");
 const webpack = require("webpack");
 
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+
 const PADDING = 10;
 
 const hasFatArrow = str => str.indexOf("=>") > -1;
@@ -18,7 +20,7 @@ const slugify = str => {
 };
 
 const createTest = (browsers, mode) => {
-  const filename = `${mode}-${slugify(browsers)}.js`;
+  const filename = `${mode}-${slugify(browsers) || "default"}.js`;
 
   console.log(
     `\x1b[36m%s\x1b[0m`,
@@ -69,7 +71,13 @@ const createTest = (browsers, mode) => {
 };
 
 console.log(`Test running...`);
-createTest("ios_saf >= 9", "development");
-createTest("ios_saf >= 9", "production");
+
 createTest("ios_saf >= 8", "development");
+createTest("ios_saf >= 9", "development");
+createTest("ios_saf >= 10", "development");
+createTest("", "development");
+
 createTest("ios_saf >= 8", "production");
+createTest("ios_saf >= 9", "production");
+createTest("ios_saf >= 10", "production");
+createTest("", "production");
