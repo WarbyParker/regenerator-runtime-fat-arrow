@@ -5,12 +5,14 @@ Safari target browser isn't transpiling fat arrows when in production mode and t
 ## Test
 
 * Run `yarn`
-* Run `yarn build`
+* Run `yarn test`
 
-Two files will be generated in dist/
+Four files will be generated in dist/
 
-* **dev.js** genereated by webpack in development mode
-* **prod.js** genereated by webpack in production mode
+* dev-ios_saf-9.js has no fat arrows
+* dev-ios_saf-8.js has no fat arrows
+* prod-ios_saf-8.js has no fat arrows
+* **prod-ios_saf-9.js has fat arrows**
 
 ## Async code being compiled
 
@@ -29,6 +31,6 @@ module.exports = {
 
 ### Production issue
 
-If you inspect **prod.js**, you can see fat arrows being added which break in iOS9.
+If you inspect **prod-ios_saf-9.js**, you can see fat arrows being added which break in iOS9.
 
 `foo: () =>`
