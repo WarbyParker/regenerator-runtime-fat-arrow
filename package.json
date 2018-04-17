@@ -12,6 +12,6 @@
     "webpack": "^4.5.0"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "rm -rf dist; node test.js"
   }
 }
