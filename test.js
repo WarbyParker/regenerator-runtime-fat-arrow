@@ -55,6 +55,10 @@ const createTest = (browsers, mode) => {
     }
   }).run((err, stats) => {
     if (err) console.warn(err);
+    if (stats.compilation.errors.length) {
+      stats.compilation.errors.map(console.error);
+      return;
+    }
     fs.readFile(`./dist/${filename}`, "utf8", (err, src) => {
       return hasFatArrow(src)
         ? console.error(
